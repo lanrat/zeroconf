@@ -15,16 +15,15 @@ Though it does not support all requirements yet, the aim is to provide a complia
 By now, it should be compatible to [Avahi](http://avahi.org/) (tested) and Apple's Bonjour (untested).
 Target environments: private LAN/WiFi, small or isolated networks.
 
-[![GoDoc](https://godoc.org/github.com/grandcat/zeroconf?status.svg)](https://godoc.org/github.com/grandcat/zeroconf)
-[![Go Report Card](https://goreportcard.com/badge/github.com/grandcat/zeroconf)](https://goreportcard.com/report/github.com/grandcat/zeroconf)
-[![Build Status](https://travis-ci.com/grandcat/zeroconf.svg?branch=master)](https://travis-ci.com/grandcat/zeroconf)
+[![GoDoc](https://godoc.org/github.com/lanrat/zeroconf?status.svg)](https://godoc.org/github.com/lanrat/zeroconf)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lanrat/zeroconf)](https://goreportcard.com/report/github.com/lanrat/zeroconf)
 
 ## Install
 
 Nothing is as easy as that:
 
 ```bash
-go get -u github.com/grandcat/zeroconf
+go get -u github.com/lanrat/zeroconf
 ```
 
 This package requires **Go 1.7** (context in std lib) or later.
