@@ -174,7 +174,9 @@ func (r *Resolver) ResolveOnce(ctx context.Context, name string, qType uint16) (
 			if name == entry.HostName {
 				ip = append(ip, entry.AddrIPv4...)
 				ip = append(ip, entry.AddrIPv6...)
-				cancel() // limits this resolve to a single response.
+				if len(ip) > 0 {
+					cancel() // limits this resolve to a single response.
+				}
 			}
 		}
 	}(entries)
