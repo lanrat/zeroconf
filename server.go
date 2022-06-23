@@ -211,7 +211,7 @@ func (s *Server) shutdown() error {
 	s.shutdownLock.Lock()
 	defer s.shutdownLock.Unlock()
 	if s.isShutdown {
-		return errors.New("Server is already shutdown")
+		return errors.New("server is already shutdown")
 	}
 
 	err := s.unregister()
@@ -253,9 +253,7 @@ func (s *Server) recv4(c *ipv4.PacketConn) {
 			if cm != nil {
 				ifIndex = cm.IfIndex
 			}
-			if err := s.parsePacket(buf[:n], ifIndex, from); err != nil {
-				// log.Printf("[ERR] zeroconf: failed to handle query v4: %v", err)
-			}
+			_ = s.parsePacket(buf[:n], ifIndex, from)
 		}
 	}
 }
@@ -281,9 +279,7 @@ func (s *Server) recv6(c *ipv6.PacketConn) {
 			if cm != nil {
 				ifIndex = cm.IfIndex
 			}
-			if err := s.parsePacket(buf[:n], ifIndex, from); err != nil {
-				// log.Printf("[ERR] zeroconf: failed to handle query v6: %v", err)
-			}
+			_ = s.parsePacket(buf[:n], ifIndex, from)
 		}
 	}
 }
