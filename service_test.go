@@ -2,7 +2,6 @@ package zeroconf
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"testing"
 	"time"
