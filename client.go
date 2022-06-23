@@ -134,14 +134,14 @@ func (r *Resolver) Lookup(ctx context.Context, instance, service, domain string,
 }
 
 // Resolve resolves the provided name over mdns to A/AAAA IP
-func (r *Resolver) Resolve(ctx context.Context, name string, qType uint16, entries chan<- *ServiceEntry) error {
+func (r *Resolver) Resolve(ctx context.Context, name string, qType uint16, entries chan *ServiceEntry) error {
 	if qType != dns.TypeA && qType != dns.TypeAAAA {
 		return fmt.Errorf("only A and AAAA records can be resolved")
 	}
 	lables := dns.SplitDomainName(name)
 	domain := lables[len(lables)-1]
 	hostname := trimDot(strings.TrimSuffix(name, domain+"."))
-	params := NewLookupParams("", hostname, domain, entries)
+	params := newLookupParams("", hostname, domain, false, entries)
 	params.queryType = qType
 	ctx, cancel := context.WithCancel(ctx)
 	go r.c.mainloop(ctx, params)
